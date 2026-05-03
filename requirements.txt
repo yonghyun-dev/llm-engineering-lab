@@ -4,3 +4,6 @@ qdrant-client
 langchain
 langchain-openai
 langchain-qdrant
+PyYAML
+beautifulsoup4
+pypdf

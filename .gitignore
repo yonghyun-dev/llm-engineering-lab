@@ -30,3 +30,9 @@ pip-wheel-metadata/
 
 .codex
 .env
+
+# Local closed-corpus dataset workbench.
+# Commit the Excel/README in data/QA data set/, but keep source snapshots,
+# intermediate JSONL, schemas, docs, and generation scripts local-only.
+data/QA data set/_local_work/
+.gstack/
