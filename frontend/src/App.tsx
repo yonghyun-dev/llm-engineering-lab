@@ -1,121 +1,139 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useMemo, useState } from 'react'
+import type { FormEvent } from 'react'
+import { ChatMessage } from './components/ChatMessage'
+import type { Message } from './types/chat'
 import './App.css'
 
+const initialMessages: Message[] = [
+  {
+    id: 1,
+    role: 'assistant',
+    content: '안녕하세요. 여행자보험에 대해 궁금한 내용을 물어보세요.',
+    time: '09:30',
+  },
+  {
+    id: 2,
+    role: 'user',
+    content: '보장 내용과 청구 방법을 간단히 확인하고 싶어요.',
+    time: '09:31',
+  },
+  {
+    id: 3,
+    role: 'assistant',
+    content:
+      '좋아요. 질문을 보내면 핵심 답변, 확인할 조건, 다음에 필요한 정보를 정리해드릴게요.',
+    time: '09:31',
+  },
+]
+
+function getCurrentTime() {
+  return new Intl.DateTimeFormat('ko-KR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(new Date())
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [messages, setMessages] = useState<Message[]>(initialMessages)
+  const [draft, setDraft] = useState('')
+
+  const canSend = draft.trim().length > 0
+  const questionCount = useMemo(
+    () => messages.filter((message) => message.role === 'user').length,
+    [messages],
+  )
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    const content = draft.trim()
+    if (!content) return
+
+    const now = getCurrentTime()
+    const userMessage: Message = {
+      id: Date.now(),
+      role: 'user',
+      content,
+      time: now,
+    }
+
+    const assistantMessage: Message = {
+      id: Date.now() + 1,
+      role: 'assistant',
+      content:
+        '아직 백엔드 LLM은 연결되지 않았어요. 지금은 화면 흐름 확인용 응답입니다.',
+      time: now,
+    }
+
+    setMessages((currentMessages) => [
+      ...currentMessages,
+      userMessage,
+      assistantMessage,
+    ])
+    setDraft('')
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
+    <main className="app-shell">
+      <aside className="sidebar" aria-label="Chat session">
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
+          <p className="eyebrow">LLM Lab</p>
+          <h1>Travel QA Chat</h1>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+
+        <div className="session-summary">
+          <div>
+            <span>질문</span>
+            <strong>{questionCount}</strong>
+          </div>
+          <div>
+            <span>상태</span>
+            <strong>Draft</strong>
+          </div>
+        </div>
+
+        <nav className="chat-list" aria-label="Recent chats">
+          <button type="button" className="active-chat">
+            여행자보험 QA
+          </button>
+          <button type="button">Baseline LLM</button>
+          <button type="button">RAG 비교</button>
+        </nav>
+      </aside>
+
+      <section className="chat-panel" aria-label="Chatbot">
+        <header className="chat-header">
+          <div>
+            <p className="eyebrow">Baseline Assistant</p>
+            <h2>질문을 입력해보세요</h2>
+          </div>
+          <span className="status-pill">Ready</span>
+        </header>
+
+        <div className="message-list" aria-live="polite">
+          {messages.map((message) => (
+            <ChatMessage key={message.id} message={message} />
+          ))}
+        </div>
+
+        <form className="composer" onSubmit={handleSubmit}>
+          <label className="sr-only" htmlFor="message">
+            메시지
+          </label>
+          <textarea
+            id="message"
+            rows={1}
+            value={draft}
+            placeholder="메시지를 입력하세요"
+            onChange={(event) => setDraft(event.target.value)}
+          />
+          <button type="submit" disabled={!canSend}>
+            전송
+          </button>
+        </form>
       </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+    </main>
   )
 }
 
