@@ -1,30 +1,9 @@
 import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
+import { sendChatMessage } from './api/chat'
 import { ChatMessage } from './components/ChatMessage'
 import type { Message } from './types/chat'
 import './App.css'
-
-const initialMessages: Message[] = [
-  {
-    id: 1,
-    role: 'assistant',
-    content: '안녕하세요. 여행자보험에 대해 궁금한 내용을 물어보세요.',
-    time: '09:30',
-  },
-  {
-    id: 2,
-    role: 'user',
-    content: '보장 내용과 청구 방법을 간단히 확인하고 싶어요.',
-    time: '09:31',
-  },
-  {
-    id: 3,
-    role: 'assistant',
-    content:
-      '좋아요. 질문을 보내면 핵심 답변, 확인할 조건, 다음에 필요한 정보를 정리해드릴게요.',
-    time: '09:31',
-  },
-]
 
 function getCurrentTime() {
   return new Intl.DateTimeFormat('ko-KR', {
@@ -35,16 +14,18 @@ function getCurrentTime() {
 }
 
 function App() {
-  const [messages, setMessages] = useState<Message[]>(initialMessages)
+  const [messages, setMessages] = useState<Message[]>([])
   const [draft, setDraft] = useState('')
+  const [isSending, setIsSending] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
-  const canSend = draft.trim().length > 0
+  const canSend = draft.trim().length > 0 && !isSending
   const questionCount = useMemo(
     () => messages.filter((message) => message.role === 'user').length,
     [messages],
   )
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     const content = draft.trim()
@@ -58,20 +39,30 @@ function App() {
       time: now,
     }
 
-    const assistantMessage: Message = {
-      id: Date.now() + 1,
-      role: 'assistant',
-      content:
-        '아직 백엔드 LLM은 연결되지 않았어요. 지금은 화면 흐름 확인용 응답입니다.',
-      time: now,
-    }
-
-    setMessages((currentMessages) => [
-      ...currentMessages,
-      userMessage,
-      assistantMessage,
-    ])
+    setMessages((currentMessages) => [...currentMessages, userMessage])
     setDraft('')
+    setErrorMessage('')
+    setIsSending(true)
+
+    try {
+      const response = await sendChatMessage(content)
+      const assistantMessage: Message = {
+        id: Date.now() + 1,
+        role: 'assistant',
+        content: response.answer,
+        time: getCurrentTime(),
+      }
+
+      setMessages((currentMessages) => [...currentMessages, assistantMessage])
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : '알 수 없는 오류가 발생했습니다.',
+      )
+    } finally {
+      setIsSending(false)
+    }
   }
 
   return (
@@ -89,7 +80,7 @@ function App() {
           </div>
           <div>
             <span>상태</span>
-            <strong>Draft</strong>
+            <strong>{isSending ? 'Sending' : 'Ready'}</strong>
           </div>
         </div>
 
@@ -112,9 +103,23 @@ function App() {
         </header>
 
         <div className="message-list" aria-live="polite">
-          {messages.map((message) => (
-            <ChatMessage key={message.id} message={message} />
-          ))}
+          {messages.length === 0 ? (
+            <div className="empty-state">
+              <p>첫 질문을 입력하면 백엔드 API로 전송됩니다.</p>
+            </div>
+          ) : (
+            messages.map((message) => (
+              <ChatMessage key={message.id} message={message} />
+            ))
+          )}
+          {isSending ? (
+            <div className="typing-indicator">답변을 생성하고 있습니다.</div>
+          ) : null}
+          {errorMessage ? (
+            <div className="error-message" role="alert">
+              {errorMessage}
+            </div>
+          ) : null}
         </div>
 
         <form className="composer" onSubmit={handleSubmit}>
@@ -129,7 +134,7 @@ function App() {
             onChange={(event) => setDraft(event.target.value)}
           />
           <button type="submit" disabled={!canSend}>
-            전송
+            {isSending ? '전송 중' : '전송'}
           </button>
         </form>
       </section>

@@ -172,6 +172,29 @@
   overflow-wrap: anywhere;
 }
 
+.empty-state,
+.typing-indicator,
+.error-message {
+  align-self: center;
+  width: min(480px, 100%);
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  background: var(--surface);
+  text-align: center;
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+.error-message {
+  border-color: var(--danger-border);
+  color: var(--danger-text);
+  background: var(--danger-bg);
+}
+
 .composer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
