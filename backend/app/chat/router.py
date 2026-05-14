@@ -25,7 +25,7 @@ def chat(request: ChatRequest) -> ChatResponse:
         model=settings.model_name,
         api_key=settings.openai_api_key,
         temperature=0.2,
-        max_completion_tokens=300,
+        max_completion_tokens=500,
     )
 
     structured_llm = llm.with_structured_output(ChatResponse)
@@ -35,9 +35,6 @@ def chat(request: ChatRequest) -> ChatResponse:
     response = chain.invoke({
         "message": request.message,
     })
-
-
     
-
     return ChatResponse(answer=response.answer)
 

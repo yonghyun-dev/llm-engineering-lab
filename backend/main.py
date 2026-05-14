@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.chat.router import router as chat_router
+from app.evaluation.router import router as evaluation_router
 from config import get_settings
 
 settings = get_settings()
@@ -23,3 +24,4 @@ def health():
     return {"status": "ok"}
 
 app.include_router(chat_router)
+app.include_router(evaluation_router)
