@@ -1,7 +1,10 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 class GoldenQA(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     qa_id: str
+    question: str
     answer: str | None = None
     answer_mode : str
     dataset: str

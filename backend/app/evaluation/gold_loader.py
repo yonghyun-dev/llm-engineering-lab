@@ -12,7 +12,6 @@ def load_gold_qa() -> list[GoldenQA]:
         for line_no, line in enumerate(f, start=1):
             if not line.strip(): # 빈 줄이면 넘어감
                 continue
-
             try:
                 payload = json.loads(line)
                 items.append(GoldenQA.model_validate(payload))
