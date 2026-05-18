@@ -288,6 +288,44 @@
   line-height: 1.55;
 }
 
+.eval-scoreboard {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.eval-scoreboard div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.eval-scoreboard span,
+.eval-filter-bar button,
+.eval-reason-list span,
+.eval-llm-slot span,
+.eval-score-card span,
+.eval-mini-metrics span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.eval-scoreboard strong,
+.eval-score-card strong,
+.eval-mini-metrics strong,
+.eval-llm-slot strong {
+  color: var(--text-strong);
+  font-size: 20px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
 .eval-target-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -470,6 +508,51 @@
   opacity: 0.45;
 }
 
+.eval-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.eval-run-bar .eval-actions {
+  min-width: auto;
+  flex-direction: row;
+}
+
+.eval-run-bar .secondary-action {
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  background: var(--surface);
+}
+
+.eval-run-bar .secondary-action:hover:not(:disabled) {
+  color: #ffffff;
+  background: var(--accent);
+}
+
+.eval-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.eval-filter-bar button {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.eval-filter-bar button:hover,
+.eval-filter-bar .active-filter {
+  border-color: var(--accent-border);
+  color: var(--accent);
+  background: #edf5ff;
+}
+
 .eval-result-list {
   display: flex;
   flex-direction: column;
@@ -509,6 +592,47 @@
   background: var(--chat-bg);
 }
 
+.eval-result-badges {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.eval-result-badges span,
+.eval-verdict {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--chat-bg);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.eval-verdict-pass {
+  border-color: var(--success-border);
+  color: var(--success-text);
+  background: var(--success-bg);
+}
+
+.eval-verdict-review {
+  border-color: #e7c96a;
+  color: #785d00;
+  background: #fff8db;
+}
+
+.eval-verdict-fail {
+  border-color: var(--danger-border);
+  color: var(--danger-text);
+  background: var(--danger-bg);
+}
+
 .eval-result-columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -533,6 +657,67 @@
   line-height: 1.55;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
+}
+
+.eval-judge-grid {
+  display: grid;
+  grid-template-columns: 128px minmax(240px, 1fr) minmax(220px, 1.2fr) 110px;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.eval-score-card,
+.eval-mini-metrics,
+.eval-reason-list,
+.eval-llm-slot {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--chat-bg);
+}
+
+.eval-score-card,
+.eval-llm-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.eval-score-card strong {
+  font-size: 30px;
+}
+
+.eval-mini-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.eval-mini-metrics div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eval-reason-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eval-reason-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.eval-reason-list li {
+  color: var(--text-strong);
+  line-height: 1.45;
 }
 
 .composer {
@@ -638,6 +823,10 @@
     grid-template-columns: 1fr;
   }
 
+  .eval-scoreboard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .eval-target-grid {
     grid-template-columns: 1fr;
   }
@@ -652,7 +841,21 @@
     width: 100%;
   }
 
+  .eval-run-bar .eval-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
   .eval-result-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .eval-result-badges {
+    justify-content: flex-start;
+  }
+
+  .eval-judge-grid,
+  .eval-mini-metrics {
     grid-template-columns: 1fr;
   }
 
