@@ -26,12 +26,34 @@ export type BaselineResponseItem = {
   expected: string | null
   actual: string
   answer_mode: string
+  question_type?: string | null
+  scoring_notes?: string | null
+  verdict: 'pass' | 'fail'
+  score: number
+  reason: string
+  judge: LlmJudgeResult
+}
+
+export type LlmJudgeResult = {
+  qa_id: string
+  verdict: 'pass' | 'fail'
+  score: number
+  reason: string
 }
 
 export type BaselineResponseRun = {
   target: 'baseline'
   total: number
+  passed: number
+  failed: number
+  average_score: number
   items: BaselineResponseItem[]
+  data: {
+    baseline: unknown
+    result: LlmJudgeResult[]
+    judge_inputs: unknown[]
+    judge_results: LlmJudgeResult[]
+  }
 }
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'

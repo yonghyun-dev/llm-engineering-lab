@@ -1,0 +1,606 @@
+{
+  "target": "baseline_judge",
+  "total": 100,
+  "items": [
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0001",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer가 가입 제한 가능성을 언급했으나, 명확히 '가입할 수 없다'고 답하지 않고 일반적인 안내와 확인 권유만 있어 핵심 요구사항을 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0002",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 여행 출발일과 종료일만 언급하고 주거지 출발과 귀가라는 핵심 내용을 포함하지 않아 부분 점수임"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0003",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 expected_answer와 정반대로 안내하여 핵심 요구사항을 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0004",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer는 중복보상이 가능하다고 잘못 안내하여 expected_answer와 모순됨. 중복보상하지 않고 비례보상한다는 핵심 내용을 포함하지 않아 정답 기준을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0005",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer는 분실 보상이 된다고 하여 expected_answer의 '분실 보상은 하지 않는다'는 핵심 내용과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0006",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "출국 전 모바일 가입과 온라인 보험금 청구가 가능하다고 명확히 안내하고 있어 expected_answer와 완전히 일치함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0007",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer는 영업일 기준 3일 이내 지급 안내인데 actual_answer는 5일 이내로 잘못 안내하여 핵심 내용과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0008",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "핵심인 '2인 이상'과 '동일한 보험증권' 조건을 정확히 포함하고 있으나, 보험사마다 다를 수 있다는 추가 설명이 있어 사소한 표현 차이로 점수를 약간 감점함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0009",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "질문에 대해 '아니요'라고 명확히 답하지 않고, 동반 가입 할인과 재가입 할인도 함께 적용되지 않는다는 핵심 내용을 누락함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0010",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer는 2시간 이상 지연 시 보장 적용이라고 명확히 안내하는데 actual_answer는 4시간 이상 지연이라고 하여 핵심 내용과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0011",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 expected_answer에 명시된 두 특약명(항공기 지연·결항 보상(지수형)(국내 출국), 항공기 지연·결항 보상(지수형)(국내 출국 제외))을 전혀 언급하지 않고 일반적인 명칭만 제시하여 핵심 요구사항을 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0012",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 환승 전용 내항기를 항공편 지연 보장에서 제외한다고 명확히 안내하고 있어 expected_answer와 핵심 내용이 일치함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0013",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "질문에 대한 정확한 상품명 '삼성화재 다이렉트 해외여행보험'을 제시하지 않고 일반적인 명칭만 안내하여 핵심 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0014",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 약관만 언급하고 상품설명서는 언급하지 않아 핵심 요구사항을 완전히 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0015",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer의 신설 시기가 2023년 7월 1일로, expected_answer의 2025년 1월과 다르며 핵심 정보가 일치하지 않음"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0016",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 1회당 최대 90일 보장이라고 하여 expected_answer의 31일과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0017",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer은 취소수수료의 80%를 보험가입금액 한도로 보상한다고 명시하는데 actual_answer는 90%로 잘못 답변하여 핵심 내용과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0018",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "3촌 이내 친족 사망이 여행 취소 사유로 포함된다는 핵심 내용을 정확히 언급했으나, 약관 확인 권고로 인해 다소 표현이 완전 단정적이지 않아 사소한 애매함이 있음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0019",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 응급이송, 구조, 송환 비용 보장을 명확히 언급하여 expected_answer와 완전히 일치함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0020",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 expected_answer의 정확한 상품명과 다르며, 핵심 요구사항인 정확한 상품명을 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0021",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer은 휴대품 손해 보장금액이 20만원으로 명확히 제시되었으나 actual_answer는 100만원에서 200만원 사이로 다르게 답변하여 핵심 내용과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0022",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "기본 가입조건으로 상해1급, 보험기간 7일, 일시납을 명확히 제시해야 하는데 실제 답변은 일반적인 비교 화면 설명만 있고 핵심 조건이 전혀 포함되어 있지 않음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0023",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 보험료 예시임을 명확히 하고 실제 보험료와 차이가 있을 수 있음을 정확히 설명함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0024",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 예시 조건 외에 다른 특약을 추가 선택할 수 있음을 명확히 안내하여 expected_answer의 핵심 내용을 완전히 충족함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0025",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "직업, 건강상태, 연령에 따른 보험료 변경 및 가입 제한 가능성을 명확히 안내하고 있어 기대 답변과 일치함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0026",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 중복 보상되지 않는다는 점을 설명했으나, expected_answer에서 요구하는 '비례보상'이라는 핵심 개념을 명확히 언급하지 않아 핵심 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0027",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "여권 사본 포함 여부는 맞으나, 여권번호 표기 면과 입출국 도장 찍힌 면에 대한 구체적 언급이 없어 핵심 내용이 부족함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0028",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer에 출입국사실증명서(출입국관리사무소 발급 확인서)로 대체할 수 있다고 명확히 안내되어 있어 expected_answer의 핵심 내용을 충족함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0029",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 국내 여행보험 청구 시 여권 사본 제출이 필요 없음을 명확히 답하고, 예상 답변과 의미상 동일하며 추가로 보험사별 차이 가능성도 언급하여 정확함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0030",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "가족관계증명서 등 가족관계 확인서류를 명확히 언급하였으나, 혼인관계증명서가 누락되어 사소한 부분에서 감점함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0031",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 절차를 네 단계로 설명했으나, expected_answer의 정확한 단계명과 순서(Step01 보험금청구, Step02 담당자 지정, Step03 사고조사 또는 심사, Step04 보험금 확정 및 지급)를 포함하지 않고, 단계명이 다르며 일부 핵심 단계(담당자 지정)가 누락됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0032",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "사고발생일로부터 3년 이내에 청구할 수 있다는 핵심 내용을 정확히 포함하고 있으며, 추가로 보험사마다 약관이 다를 수 있다는 안내도 적절함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0033",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "핵심 내용인 여러 보험사에 중복 가입 시 보험금이 보험사별로 나누어 지급된다는 점을 포함하고 있으나, 예상 답변보다 구체적인 지급 조정 내용이 추가되어 있으나 이는 일반적 설명으로 크게 벗어나지 않아 감점은 사소함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0034",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 '보험금 청구' 메뉴만 언급하고 전체 메뉴 경로인 '보상 > 해외여행보험 > 해외여행 항공지연(지수형) 보험금청구'를 포함하지 않아 핵심 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0035",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "기대 답변인 가족관계증명서 제출 필요성을 언급하지 않고, 대신 동의서가 필요할 수 있다고만 하여 핵심 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0036",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "expected_answer는 '해외여행 보상내역 확인 메뉴'라고 명확히 안내하는 반면, actual_answer는 '보험사 고객센터', '보험사 홈페이지의 보험금 청구 내역 조회 메뉴', '보험사 모바일 앱' 등 여러 경로를 제시하여 핵심 메뉴 명칭이 다름. 핵심 메뉴 명칭이 일치하지 않아 감점함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0037",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer에 보험금 청구서, 여권 사본은 포함되었으나, 개인(신용)정보처리동의서와 청구인 신분증 사본이 누락되었고, 불필요한 서류가 포함되어 핵심 답변이 부족함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0038",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "접수 방법이 우편 또는 방문만 가능하다는 점과 서류 원본 제출이 필요하다는 핵심 내용이 누락되고, 대신 보험사에 문의하라는 일반적인 안내만 있어 정답 기준을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0039",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 여러 보험사에 동시에 청구할 수 있다고 했으나, expected_answer가 요구하는 '삼성화재에 제출한 필요서류를 대신 전송해 준다'는 핵심 내용이 명확히 포함되어 있지 않음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0040",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 최대 기간을 30일로 안내하여, expected_answer의 2개월(약 60일)과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0041",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer는 상급병실료 차액을 비급여 병실료의 50% 보장이라고 명확히 하는데 actual_answer는 80%로 잘못 안내하여 정답과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0042",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "핵심 내용인 일부 담보를 제외할 수 있다는 점을 언급했으나, 구체적인 담보명 선택에 대한 직접적인 언급이 부족하고 다소 애매한 표현이 있음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0043",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "질문에 대해 명확한 확인 없이 일반적인 보장 내용을 단정적으로 답변하여 clarification 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0044",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "질문에 대해 필요한 조건(지연 시간, 특약 가입 여부, 환승 전용 내항기 여부)을 묻지 않고 일반적인 안내만 제공하여 clarification 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0045",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "질문에 대해 필요한 추가 조건(동일 보험증권 가입 여부, 2030 청년도약 할인 적용 여부)을 묻지 않고 바로 답변하여 clarify 모드 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0046",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "질문은 명확한 추가 정보를 요구하는 clarify 모드인데, 실제 답변은 일반적인 설명과 안내만 제공하고 구체적인 조건(상품명, 취소 사유)을 묻지 않아 평가 기준에 부합하지 않음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0047",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "KakaoPay 해외여행보험의 휴대품 손해 보장 한도에 대해 주어진 자료만으로 답할 수 없으므로 명확히 답변을 거부해야 하는데, 실제 답변이 구체적인 한도를 제시하여 근거 없는 정보를 제공함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0048",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer가 없고 answer_mode가 abstain인데, actual_answer가 근거 없이 일반적인 정보를 제공하며 명확히 답할 수 없다고 하지 않아 규칙 위반임"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0049",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "질문은 추천을 요구하는데, answer_mode가 abstain임에도 불구하고 실제 답변은 구체적인 추천과 조언을 제공하여 규칙 위반임."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0050",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 '삼성화재 365 해외여행보험'으로 답변하여 '삼성화재 다이렉트 365 연간 해외여행보험'이라는 정확한 상품명을 맞추지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0051",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 동반 가입이 가족 구성원과 함께 여행할 때 가능하다고 설명했으나, 핵심인 '2인 이상이 동일한 보험증권으로 가입하는 경우'라는 조건을 명확히 포함하지 않아 부분 점수임."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0052",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "2명 이상 가입 시 10% 할인이라는 핵심 내용을 정확히 포함하고 있으며, 추가 안내도 적절함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0053",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer이 한 번 가입으로 1년 동안 보장한다는 핵심 내용을 명확히 포함하고 있어 정답 기준을 완전히 충족함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0054",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 항공지연, 의료비, 휴대품 손해 보장을 모두 포함하여 상세히 설명하고 있으며, expected_answer의 핵심 내용을 완전히 충족함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0055",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "항공권과 호텔 예약 취소 위약금 예시는 포함되었으나, 액티비티 체험에 대한 언급이 빠져 있어 사소한 누락이 있음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0056",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 보험 가입자 본인 명의로 예약된 상품이라고 했으나, expected_answer는 피보험자 명의로 예약된 해외에서만 이용 가능한 여행 상품임을 명확히 해야 함. 해외에서만 이용 가능한 조건이 빠져 핵심 내용이 부족함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0057",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 주요 대중교통 수단의 운송편 취소로 설명했으나, 피보험자 명의, 사전 예약, 국내 출발 국제선 운송편이라는 핵심 조건이 빠져 있음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0058",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "배우자 또는 직계존비속의 3일 이상 입원이 포함된다고 했으나, 여행 출발일까지 입원해야 한다는 조건이 누락되어 핵심 요구사항을 완전히 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0059",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "임신 사실 확인과 의사의 여행 불가 소견이 명확히 포함되어야 하는데, 실제 답변은 이를 확정적으로 언급하지 않고 조건에 따라 다를 수 있다고만 하여 핵심 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0060",
+      "verdict": "fail",
+      "score": 0.8,
+      "reason": "actual_answer에 '365일'이 명시되지 않아 24시간과 언제 어디서든은 맞지만 365일이 누락됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0061",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "현지 병원 이용과 여권 분실 등 구체적인 사고 사례를 포함하여 우리말 도움을 제공한다는 점을 정확히 답변함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0062",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 2023년 7월 1일로, expected_answer의 2026년 2월과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0063",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer가 명확히 '아니요'라고 답하지 않고, 차량 사용 중 손해 보상 제외에 대한 직접적인 안내가 부족함. 핵심인 차량 사용 중 손해 미보상 내용을 명확히 제시하지 않아 부분 점수."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0064",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "핵심 내용인 '비행기 타기 전까지 가입 가능'을 포함하고 있으나, '간편한 가입'이라는 표현이 누락되어 약간의 감점이 있음. 그러나 모순 없이 정확한 안내를 포함하여 합격 판정."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0065",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "정답은 41.7% 저렴하다고 명확히 표시하는데, 실제 답변은 20%로 잘못된 수치를 제시하여 핵심 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0066",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "24시간 콜센터와 우리말 도움 서비스 제공을 명확히 언급했으나, '365일'이라는 표현이 누락되어 있어 약간의 감점이 있음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0067",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer는 해외의료비 부담 경감 방법을 설명하지만, expected_answer에 명시된 '일상적인 감기 치료'와 '시급한 응급실 치료' 보장 내용이 포함되어 있지 않음"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0068",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "질문에 대해 명확히 '네'라고 답해야 하는데, 실제 답변은 해당 예시가 있는지 모른다고만 하여 핵심 요구사항을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0069",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "질문에 대해 '독감 몸살로 고열에 시달리는 상황을 예시로 든다'는 expected_answer와 달리, actual_answer는 해당 예시가 없다고 답변하여 핵심 내용을 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0070",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 워홀 중 넘어져 크게 다친 상황을 예시로 든다고 명확히 언급하여 expected_answer와 일치함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0071",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer에 명시된 휴대품 손해, 항공기 지연, 감염병 진단 등 일상 사고 보장 내용이 actual_answer에 전혀 포함되어 있지 않음"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0072",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 약관만 언급하고 상품설명서는 누락하여 핵심 요구사항을 완전히 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0073",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer의 상품명 '삼성화재 여행자보험(국내)'는 expected_answer '삼성화재 다이렉트 국내여행보험'과 다르며, 정확한 상품명을 제시하지 않아 정답 기준을 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0074",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 다양한 가입 채널을 안내했으나, expected_answer의 핵심인 '모바일로 간편한 가입'이라는 안내를 명확히 언급하지 않아 핵심 요구사항을 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0075",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer는 20% 저렴하다고 명시하는데 actual_answer는 10% 저렴하다고 하여 핵심 수치가 다름으로 오답임"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0076",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "예상치 못한 질병 치료비와 상해 치료비를 모두 포함하여 명확히 답변함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0077",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 expected_answer와 다르게 '국내 의료기관 치료비 보장 특약'만 언급하고, 기본형 실손의료비특약과 비급여 실손의료비 특약을 명시하지 않아 핵심 요구사항을 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0078",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "상해 또는 질병으로 국내 의료기관에서 치료를 받은 경우 연간 보험가입금액 한도 내 보상한다는 점은 맞으나, '요양급여 또는 의료급여에 해당하는 치료나 처방조제'라는 구체적 조건이 누락되어 핵심 요건을 완전히 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0079",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 약관에서 확인하라고 명확히 안내하여 expected_answer의 핵심 요구사항을 충족함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0080",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "여행 중 발생한 사고로 인한 법률상 배상책임을 보상한다는 핵심 내용을 모두 포함하고 있으며, 표현도 명확하다."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0081",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 자택 도난손해 특별약관이 여행 중 자택에서 발생한 도난을 보상한다고 하여, expected_answer의 '보험기간 중 피보험자가 주민등록본상 거주하는 주택 구내에 있는 동안'이라는 조건과 '강도 또는 절도에 의한 도난, 망가짐, 손상 및 파손' 보상 범위를 누락하고 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0082",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 공용부분 제외를 명확히 했으나, 베란드(발코니) 포함에 대한 언급이 없어 핵심 내용이 부족함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0083",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 실손보상의 핵심인 '실제 지출한 금액만큼 보상'을 명확히 설명하고 있어 expected_answer와 의미상 동일함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0084",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 비례보상 개념을 일부 설명하나, 여러 보험 가입 시 각 보험 가입금액에 비례해 보상한다는 핵심 내용이 빠져 있음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0085",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer는 정액 보상 담보는 중복보상이 가능하다고 안내하는데 actual_answer는 중복보상이 불가하다고 정반대 내용으로 답변하여 핵심 내용과 모순됨"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0086",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 파손사진이 필요서류임을 명확히 언급하며, 추가로 보험사별 차이 가능성도 안내하여 충분히 정답 기준을 충족함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0087",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "현지 경찰서의 확인서가 예시로 안내된다는 핵심 내용을 정확히 포함하고 있어 완전한 정답임."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0088",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 수하물 지연 확인서만 언급하고, 항공사에 지연신고한 서류(Property irregularity Report)를 포함하지 않아 핵심 답변이 부족함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0089",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "항공기 지연 확인서 필요성은 언급했으나, 승객 명단이 없는 경우 항공권 사본 제출 안내가 빠져 있어 핵심 요구사항을 완전히 충족하지 못함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0090",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "expected_answer는 변경 전/후 항공기 탑승권 사본 제출을 명확히 안내하는 반면, actual_answer는 다양한 추가 서류를 제시하며 변경 전/후 탑승권 사본 제출을 명확히 언급하지 않아 핵심 요구사항이 부족함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0091",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 메뉴 경로 전체를 명확히 제시하지 않고, 보험사마다 다를 수 있다고만 안내하여 expected_answer의 구체적인 메뉴 경로 안내를 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0092",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "actual_answer는 모바일 앱 외 다른 청구 방법을 구체적으로 안내하고 있으나, expected_answer에서 요구하는 '보험금청구서 작성 후 필요서류와 함께 청구'라는 핵심 문구가 명확히 포함되어 있지 않아 사소한 누락이 있음."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0093",
+      "verdict": "pass",
+      "score": 0.8,
+      "reason": "핵심 번호인 1588-5114를 포함하고 있으나, 질문에 명확히 삼성화재 고객콜센터 1588-5114를 안내한다고 직접 답하지 않고 일반적인 안내를 포함하여 표현이 다소 애매함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0094",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 휴대폰(스마트폰)으로 QR코드를 스캔하라고 명확히 안내하여 expected_answer의 핵심 내용을 충족함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0095",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "expected_answer는 보험금청구서 작성 후 필요서류와 함께 청구하라고 안내하는 것인데, actual_answer는 지연 확인서, 탑승권 사본, 추가 비용 영수증 제출과 온라인 청구 시스템 안내 등으로 정답과 다르며 claim form 작성 안내가 빠져 있음"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0096",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 약값 영수증은 언급했으나 처방전(처방전) 언급이 없고, 진단서 등 불필요한 서류가 포함되어 있어 핵심 답변이 부족함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0097",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "사고 내용과 상품에 따라 추가서류 요청 가능함을 명확히 언급하여 expected_answer와 완전히 일치함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0098",
+      "verdict": "fail",
+      "score": 0.5,
+      "reason": "actual_answer는 '자동차 사고 배상책임' 항목에서 확인하라고만 안내하고 있으며, expected_answer의 '보상 > 자동차보험 > 필요서류 안내' 경로를 명확히 제시하지 않아 핵심 요구사항을 충족하지 못함"
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0099",
+      "verdict": "pass",
+      "score": 1.0,
+      "reason": "actual_answer가 expected_answer의 핵심인 '회사 양식의 청구서'를 명확히 언급하고, 추가로 청구서 입수 방법과 작성 내용까지 상세히 설명하여 정답 기준을 완벽히 충족함."
+    },
+    {
+      "qa_id": "travel-insurance-kr-samsung-damoa-v0.1-0100",
+      "verdict": "fail",
+      "score": 0.0,
+      "reason": "actual_answer가 사고증명서 예시로 경찰서 사고사실확인서, 병원 진단서 등을 들었으나, expected_answer의 진료비계산서, 사망진단서, 장해진단서, 입원치료확인서, 의사처방전 등과 다르며 핵심 예시를 포함하지 않아 정답 기준을 충족하지 못함"
+    }
+  ]
+}

@@ -720,6 +720,12 @@
   line-height: 1.45;
 }
 
+.eval-reason-list p {
+  margin: 0;
+  color: var(--text-strong);
+  line-height: 1.45;
+}
+
 .composer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

@@ -1,3 +1,5 @@
+from typing import Literal
+
 from pydantic import BaseModel, ConfigDict, Field
 
 class GoldenQA(BaseModel):
@@ -21,3 +23,12 @@ class GoldenUploadResponse(BaseModel):
     count: int
     dataset: str | None = None
     dataset_version: str | None = None
+
+class ChatResponse(BaseModel):
+    answer : str
+
+class LLMJudgeResult(BaseModel):
+    qa_id: str
+    verdict: Literal["pass", "fail"]
+    score: float = Field(ge=0, le=1)
+    reason: str
