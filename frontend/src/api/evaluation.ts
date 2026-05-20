@@ -20,40 +20,33 @@ export type GoldenQaItem = {
   clarification_prompt?: string | null
 }
 
-export type BaselineResponseItem = {
+export type JudgeVerdict = 'pass' | 'fail'
+
+export type BaselineJudgeItem = {
   qa_id: string
-  question: string
-  expected: string | null
-  actual: string
-  answer_mode: string
+  question?: string
+  expected_answer?: string | null
+  actual_answer?: string
+  answer_mode?: string
   question_type?: string | null
   scoring_notes?: string | null
-  verdict: 'pass' | 'fail'
+  clarification_prompt?: string | null
+  verdict: JudgeVerdict
   score: number
   reason: string
-  judge: LlmJudgeResult
 }
 
 export type LlmJudgeResult = {
   qa_id: string
-  verdict: 'pass' | 'fail'
+  verdict: JudgeVerdict
   score: number
   reason: string
 }
 
-export type BaselineResponseRun = {
-  target: 'baseline'
+export type BaselineJudgeRun = {
+  target: 'baseline_judge'
   total: number
-  passed: number
-  failed: number
-  average_score: number
-  items: BaselineResponseItem[]
-  data: {
-    baseline: unknown
-    result: LlmJudgeResult[]
-    judge_inputs: unknown[]
-    judge_results: LlmJudgeResult[]
-  }
+  items: BaselineJudgeItem[]
 }
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
@@ -106,8 +99,39 @@ export async function getGoldenQaSummary(): Promise<GoldenQaSummary | null> {
   return toGoldenQaSummary(items)
 }
 
-// Baseline LLM이 전체 Golden QA에 대해 생성한 답변 묶음을 요청합니다.
-export async function runBaselineEvaluation(): Promise<BaselineResponseRun> {
+function toBaselineJudgeRun(data: unknown): BaselineJudgeRun {
+  if (!data || typeof data !== 'object') {
+    throw new Error('Baseline Judge 응답 형식이 올바르지 않습니다.')
+  }
+
+  const candidate = data as Partial<BaselineJudgeRun>
+
+  if (candidate.target !== 'baseline_judge' || !Array.isArray(candidate.items)) {
+    throw new Error('Baseline Judge 응답 형식이 올바르지 않습니다.')
+  }
+
+  const items = candidate.items.filter((item): item is BaselineJudgeItem => {
+    if (!item || typeof item !== 'object') return false
+
+    const judgeItem = item as Partial<BaselineJudgeItem>
+
+    return (
+      typeof judgeItem.qa_id === 'string' &&
+      (judgeItem.verdict === 'pass' || judgeItem.verdict === 'fail') &&
+      typeof judgeItem.score === 'number' &&
+      typeof judgeItem.reason === 'string'
+    )
+  })
+
+  return {
+    target: 'baseline_judge',
+    total: typeof candidate.total === 'number' ? candidate.total : items.length,
+    items,
+  }
+}
+
+// 저장된 baseline 답변을 LLM Judge로 채점하고, 화면에 표시할 결과 묶음을 요청합니다.
+export async function runBaselineEvaluation(): Promise<BaselineJudgeRun> {
   const response = await fetch(`${API_BASE_URL}/eval/baseline`, {
     method: 'POST',
   })
@@ -116,5 +140,6 @@ export async function runBaselineEvaluation(): Promise<BaselineResponseRun> {
     throw new Error('Baseline 응답 생성에 실패했습니다.')
   }
 
-  return response.json() as Promise<BaselineResponseRun>
+  const data = (await response.json()) as unknown
+  return toBaselineJudgeRun(data)
 }

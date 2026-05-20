@@ -108,10 +108,15 @@ async def baseline_eval():
         *(run_one2(chain, item, semaphore) for item in li)
     )
 
-    judge_items = [
-        result.model_dump() if hasattr(result, "model_dump") else result
-        for result in results
-    ]
+    judge_items = []
+
+    for source_item, result in zip(li, results):
+        judge_result = result.model_dump() if hasattr(result, "model_dump") else result
+
+        judge_items.append({
+            **source_item,
+            **judge_result,
+        })
 
     payload = {
         "target": "baseline_judge",
